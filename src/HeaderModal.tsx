@@ -18,31 +18,35 @@ const styles = StyleSheet.create({
 
 interface HeaderModalProps {
   withFilter?: boolean
-  withCloseButton?: boolean
+  closeButton?: React.ReactNode;
   closeButtonImage?: ImageSourcePropType
   closeButtonStyle?: StyleProp<ViewStyle>
   closeButtonImageStyle?: StyleProp<ImageStyle>
   onClose(): void
   renderFilter(props: HeaderModalProps): ReactNode
 }
+
 export const HeaderModal = (props: HeaderModalProps) => {
   const {
     withFilter,
-    withCloseButton,
+    closeButton,
     closeButtonImage,
     closeButtonStyle,
     closeButtonImageStyle,
     onClose,
     renderFilter
   } = props
+
   return (
     <View style={styles.container}>
-      {withCloseButton && <CloseButton
-        image={closeButtonImage}
-        style={closeButtonStyle}
-        imageStyle={closeButtonImageStyle}
-        onPress={onClose}
-      />}
+      {closeButton ||
+        <CloseButton
+          image={closeButtonImage}
+          style={closeButtonStyle}
+          imageStyle={closeButtonImageStyle}
+          onPress={onClose}
+        />
+      }
       {withFilter && renderFilter(props)}
     </View>
   )

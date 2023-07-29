@@ -67,6 +67,7 @@ interface CountryPickerProps {
   visible?: boolean
   placeholder?: string
   containerButtonStyle?: StyleProp<ViewStyle>
+  closeButton?: React.ReactNode;
   closeButtonImage?: ImageSourcePropType
   closeButtonStyle?: StyleProp<ViewStyle>
   closeButtonImageStyle?: StyleProp<ImageStyle>
@@ -106,6 +107,7 @@ export const CountryPicker = (props: CountryPickerProps) => {
     withFlagButton,
     onClose: handleClose,
     onOpen: handleOpen,
+    closeButton,
     closeButtonImage,
     closeButtonStyle,
     closeButtonImageStyle,
@@ -194,6 +196,7 @@ export const CountryPicker = (props: CountryPickerProps) => {
           {...{
             withFilter,
             onClose,
+            closeButton,
             closeButtonImage,
             closeButtonImageStyle,
             closeButtonStyle,
